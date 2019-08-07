@@ -15,7 +15,7 @@ public class LogService {
         return true;
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         new Thread(new Runnable() {
             @Override
