@@ -15,7 +15,7 @@ public class LogUtil {
         }
     }
 
-    public LogUserDto take(){
+    public static LogUserDto take(){
         try {
             return logsDeque.take();
         } catch (InterruptedException e) {

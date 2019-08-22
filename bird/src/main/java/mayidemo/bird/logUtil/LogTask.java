@@ -12,8 +12,6 @@ import javax.annotation.PostConstruct;
 @Slf4j
 public class LogTask {
     @Autowired
-    LogUtil logUtil;
-    @Autowired
     LogService logService;
 
     @PostConstruct
@@ -22,17 +20,21 @@ public class LogTask {
             @Override
             public void run() {
                 while(true){
-                    LogUserDto logUserDto = logUtil.take();
-                    System.out.println(" >> 获取你的日志 ,保存到数据库  data = " + new Gson().toJson(logUserDto));
-                    if(!logService.saveLog(logUserDto)){
-                        LogUtil.add(logUserDto);
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                        try{
+                            LogUserDto logUserDto = LogUtil.take();
+                            log.info(" >> 获取你的日志 ,保存到数据库  data = " + new Gson().toJson(logUserDto));
+                            if(!logService.saveLog(logUserDto)){
+                                LogUtil.add(logUserDto);
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }catch (Exception e){
+                            log.error("保存日志失败",e);
                         }
                     }
-                }
             }
         }).start();
     }
