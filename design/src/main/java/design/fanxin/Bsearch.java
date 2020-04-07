@@ -1,7 +1,7 @@
-package design.t;
+package design.fanxin;
 
-import design.t.dto.BQuery;
-import design.t.dto.BVo;
+import design.fanxin.dto.BQuery;
+import design.fanxin.dto.BVo;
 
 import java.util.List;
 

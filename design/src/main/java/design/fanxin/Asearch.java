@@ -1,7 +1,7 @@
-package design.t;
+package design.fanxin;
 
-import design.t.dto.AQuery;
-import design.t.dto.AVo;
+import design.fanxin.dto.AQuery;
+import design.fanxin.dto.AVo;
 
 import java.util.List;
 
