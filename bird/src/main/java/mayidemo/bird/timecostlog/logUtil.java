@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Slf4j
-public class A {
+public class logUtil {
     public static String FORMAT_FULL = "yyyy-MM-dd HH:mm:ss.S";
     static ThreadLocal<List<Data>> dates = new ThreadLocal<>();
     public static void add(String msg){
@@ -43,9 +43,9 @@ public class A {
     }
 
     public static void main(String[] args) {
-        A.add("111");
-        A.add("222");
-        A.out();
+        logUtil.add("111");
+        logUtil.add("222");
+        logUtil.out();
     }
 
 }
