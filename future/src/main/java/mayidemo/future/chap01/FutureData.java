@@ -16,6 +16,12 @@ public class FutureData {
      */
     public void future(){
         CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("我需要3秒");
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return "1";
         }, executorPool).exceptionally((e) -> {
             log.info("1 error", e);
@@ -23,6 +29,12 @@ public class FutureData {
         });
 
         CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("我需要2秒");
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return "2";
         }, executorPool).exceptionally((e) -> {
             log.info("2 error", e);
