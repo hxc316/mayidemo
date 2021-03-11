@@ -3,9 +3,7 @@ package mayidemo.bird.java8;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class T2 {
@@ -50,4 +48,12 @@ public class T2 {
 //        stringStream.forEach(System.out::println);
 //        return stringStream;
     }
+
+    @Test
+    public void test4(){
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Integer sum = list.stream().reduce(0, Integer::sum);
+        System.out.println(sum);
+    }
+
 }
